@@ -38,4 +38,58 @@ body {
     color: white;
     text-decoration: none;
     font-size: 6vh;
+    transition: 0.167s ease-in;
+
+    &.nav-item:hover {
+        color: yellow;
+        transform: scale(1.067);
+    }
+}
+
+.current-weather {
+    width: 50%;
+    height: 28%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 10vh auto;
+    gap: 20px;
+
+    & div:first-of-type {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 1px solid gray;
+
+        & p {
+            color: gray;
+            font-weight: 100;
+            font-size: 10pt;
+        }
+
+        & h1 {
+            text-transform: uppercase;
+            color: gray;
+            font-weight: 100;
+            font-size: 12pt;
+        }
+    }
+    & div:last-of-type {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+        & h1 {
+            font-size: calc(2rem + 0.887vw);
+        }
+
+        & h2 {
+            font-size: calc(2rem + 0.887vw);
+        }
+    }
+
 }
