@@ -8,22 +8,30 @@ const API_METHODS = {
 }
 
 fetch(`${BASE_URL}${API_METHODS.current}?key=${API_KEY}&q=auto:ip`)
-.then(rawData => rawData.json())
+.then(rawData => {
+    console.log(rawData);
+    return rawData.json();
+})
 .then(data => {
     appContainer.innerHTML = `
         <div class="current-weather">
             <div>
-                <h1>Current Weather</h1>
+                <h1>${data.location.name}, ${data.location.country}</h1>
                 <p>${data.location.localtime}</p>
             </div>
             <div>
                 <span>
-                    <h1>${data.current.temp_c}&deg;C</h1>
+                    <span>
+                        <h1>${data.current.temp_c}&deg;C</h1>
+                        <h2>Feels like ${data.current.feelslike_c}&deg;C</h2>
+                    </span>
                     <img src="${data.current.condition.icon}">
                 </span>
                 <h2>${data.current.condition.text}</h2>
             </div>
         </div>
+
+        <div></div>
     `
 })
 
