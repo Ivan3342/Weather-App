@@ -15,15 +15,17 @@ fetch(`${BASE_URL}${API_METHODS.current}?key=${API_KEY}&q=auto:ip`)
 .then(data => {
     appContainer.innerHTML = `
         <div class="current-weather">
-            <div>
-                <h1>${data.location.name}, ${data.location.country}</h1>
-                <p>${data.location.localtime}</p>
+
+            <div class="current-weather-header">
+                <h1>Current Weather: ${data.location.name}, ${data.location.country}</h1>
+                <h1>${data.location.localtime.split(" ")[1]}</h1>
             </div>
+
             <div>
                 <span>
                     <span>
                         <h1>${data.current.temp_c}&deg;C</h1>
-                        <h2>Feels like ${data.current.feelslike_c}&deg;C</h2>
+                        <h2 class="feels-like">Feels like ${data.current.feelslike_c}&deg;C</h2>
                     </span>
                     <img src="${data.current.condition.icon}">
                 </span>
